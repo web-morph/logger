@@ -1,4 +1,4 @@
-var javaVersion = 11;
+var javaVersion = 8;
 group = "com.github.webmorph"
 version = "1.0.1"
 
