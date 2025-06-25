@@ -1,5 +1,6 @@
+var javaVersion = 8;
 group = "com.github.webmorph"
-version = "1.0.0"
+version = "1.0.1"
 
 plugins {
     id("java-library")
@@ -10,7 +11,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(javaVersion)
     }
 }
 
@@ -38,6 +39,10 @@ tasks {
         options.encoding = "UTF-8"
         options.memberLevel = JavadocMemberLevel.PUBLIC
         isFailOnError = false
+    }
+    withType<JavaCompile> {
+        options.encoding = Charsets.UTF_8.name()
+        options.release.set(javaVersion)
     }
     build {
         dependsOn("sourcesJar", "javadocJar")
