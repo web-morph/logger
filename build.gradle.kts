@@ -63,7 +63,7 @@ publishing {
     repositories {
         maven {
             name = "BillmarsSoft"
-            url = uri("https://repo.billmarssoft.com/repository/releases/")
+            url = uri("https://repo.billmarssoft.com/releases/")
             credentials {
                 username = System.getenv("REPOSITORY_USERNAME")
                 password = System.getenv("REPOSITORY_PASSWORD")
