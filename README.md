@@ -17,7 +17,7 @@ consumed by other modules in the **WebMorph** ecosystem or external Spring-based
 
 ```kts
 repositories {
-    maven("https://repo.billmarssoft.com/repository/maven-public/")
+    maven("https://repo.billmarssoft.com/public/")
 }
 
 dependencies {
@@ -30,7 +30,7 @@ dependencies {
 ```groovy
 repositories {
     maven {
-        url 'https://repo.billmarssoft.com/repository/maven-public/'
+        url 'https://repo.billmarssoft.com/public/'
     }
 }
 
