@@ -9,17 +9,28 @@
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="${LOG_PATTERN}" disableAnsi="false" noConsoleNoAnsi="false"/>
+            <Filters>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
         </Console>
-        <RollingFile name="RollingFile" fileName="./logs/latest.log" filePattern="./logs/%d{dd-MM-yyyy}-%i.log.gz">
+        <RollingFile name="InfoRollingFile" fileName="./logs/latest.log"
+                     filePattern="./logs/info-%d{dd-MM-yyyy}-%i.log.gz">
             <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss} - %t] %-5p %c{1.} - %m%n%throwable"/>
+            <Filters>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
             <Policies>
                 <OnStartupTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
                 <TimeBasedTriggeringPolicy/>
             </Policies>
         </RollingFile>
-        <RollingFile name="RollingFileDebug" fileName="./logs/debug.log" filePattern="./logs/%d{dd-MM-yyyy}-%i.debug.log.gz">
+        <RollingFile name="DebugRollingFile" fileName="./logs/debug.log"
+                     filePattern="./logs/debug-%d{dd-MM-yyyy}-%i.log.gz">
             <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss} - %t] %-5p %c{1.} - %m%n%throwable"/>
+            <Filters>
+                <LevelRangeFilter minLevel="debug" maxLevel="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
             <Policies>
                 <OnStartupTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="10 MB"/>
@@ -29,12 +40,10 @@
     </Appenders>
 
     <Loggers>
-        <Root level="info">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="RollingFile"/>
-        </Root>
         <Root level="debug">
-            <AppenderRef ref="RollingFileDebug"/>
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="InfoRollingFile"/>
+            <AppenderRef ref="DebugRollingFile"/>
         </Root>
     </Loggers>
 </Configuration>
