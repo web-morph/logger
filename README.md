@@ -7,6 +7,7 @@ consumed by other modules in the **WebMorph** ecosystem or external Spring-based
 <img alt="License" src="https://img.shields.io/github/license/web-morph/logger">
 <a href="https://docs.gradle.org/8.14/release-notes.html"><img src="https://img.shields.io/badge/Gradle-8.14-brightgreen.svg?colorB=469C00&logo=gradle"></a>
 <a href="https://repo.billmarssoft.com/api/maven/latest/file/releases/com/github/webmorph/logger?extension=jar" target="_blank"><img alt="Download" src="https://repo.billmarssoft.com/api/badge/latest/releases/com/github/webmorph/logger"></a>
+<a href="https://repo.billmarssoft.com/javadoc/releases/com/github/webmorph/logger/latest" target="_blank"><img alt="Download" src="https://img.shields.io/badge/javadoc-latest-red"></a>
 </p>
 
 ---
@@ -17,7 +18,7 @@ consumed by other modules in the **WebMorph** ecosystem or external Spring-based
 
 ```kts
 repositories {
-    maven("https://repo.billmarssoft.com/repository/maven-public/")
+    maven("https://repo.billmarssoft.com/public/")
 }
 
 dependencies {
@@ -30,7 +31,7 @@ dependencies {
 ```groovy
 repositories {
     maven {
-        url 'https://repo.billmarssoft.com/repository/maven-public/'
+        url 'https://repo.billmarssoft.com/public/'
     }
 }
 
